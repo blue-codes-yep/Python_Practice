@@ -1,0 +1,41 @@
+import requests
+import json
+import sys
+
+
+def args():
+    arg = [float(x) for x in sys.argv[1:]]
+    user_arg = arg.pop(0)
+    return user_arg
+
+
+def bitcoin():
+    response = requests.get(
+        "https://api.coindesk.com/v1/bpi/currentprice.json")
+
+    usd_price = response.json()
+
+    for currency, val in usd_price["bpi"].items():
+        return(val["rate_float"])
+
+
+def cost():
+    bitcoin_price = bitcoin()
+    user_purchase = args()
+    value = (bitcoin_price * user_purchase)
+    return(f"${value:,.4f}")
+
+
+def main():
+    user_purchase = args()
+    value = cost()
+
+    print(value)
+    try:
+        if float(user_purchase):
+            return True
+    except ValueError:
+        sys.exit("Invalid Amount / Not a float or digit")
+
+
+main()

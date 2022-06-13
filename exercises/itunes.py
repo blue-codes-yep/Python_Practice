@@ -7,7 +7,7 @@ if len(sys.argv) != 2:
 
 
 response = requests.get(
-    "https://itunes.apple.com/search?entity=song&limit=1&term=" + sys.argv[1])
+    "https://itunes.apple.com/search?entity=song&limit=3&term=" + sys.argv[1])
 
 # Print out the contents of the search
 
