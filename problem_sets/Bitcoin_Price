@@ -39,3 +39,13 @@ def main():
 
 
 main()
+
+
+def application(s):
+    split = (s.split("."))
+    join_s = (''.join(split[1]))
+    ext = ['pdf', 'txt', 'zip']
+    for i in ext:
+        if join_s in ext:
+            print("Application/"+join_s)
+            return True
