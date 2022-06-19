@@ -1,6 +1,7 @@
 import string
 import re
 
+# Makes sure the first two characters of the string aren't digits.
 plate_pattern = re.compile('\D*\d*')
 
 
@@ -9,7 +10,7 @@ def main():
     tests = [exclusions, platecheck, checkzero]
     invalid = any(test(plate) for test in tests)
     if invalid:
-        print("Invalid \nNo numbers in the start/middle of the plate, first number may not be 0. \nNo punctuation allowed.\nPlate must be between 2-6 characters.")
+        print("Invalid")
     else:
         print("Valid")
 
@@ -30,4 +31,5 @@ def checkzero(s):
     return re.search(p, s) != None
 
 
-main()
+if __name__ == "__main__":
+    main()

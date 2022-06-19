@@ -1,3 +1,5 @@
+# This code is slightly broke, need to go back over it at some point
+
 def main():
     file = input("File name:")
     try:

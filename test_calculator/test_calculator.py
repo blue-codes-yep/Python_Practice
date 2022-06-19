@@ -1,4 +1,4 @@
-from calculator import square
+from exercises.calculator import square
 
 # Common to call the function that is being tested, with test_(function)
 
